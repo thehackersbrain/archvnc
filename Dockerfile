@@ -55,4 +55,4 @@ COPY tmux.conf /home/naruto/.tmux.conf
 
 SHELL ["/bin/zsh", "-c"]
 
-CMD ["/bin/zsh", "-c", "/usr/sbin/vncserver", ":1"]
+CMD ["/bin/zsh", "-c", "/usr/sbin/vncserver && tail -f /dev/null"]
