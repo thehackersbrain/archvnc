@@ -50,6 +50,9 @@ RUN sed -i 's/^plugins=(git)/plugins=(git z zsh-syntax-highlighting zsh-autosugg
 COPY vimrc /home/naruto/.vimrc
 COPY tmux.conf /home/naruto/.tmux.conf
 
+RUN xfconf-query -c xsettings -p /Net/ThemeName -s "Adwaita-dark"
+RUN xfconf-query -c xsettings -p /Gtk/FontName -s "Source Code Pro Regular"
+
 SHELL ["/bin/zsh", "-c"]
 
 CMD ["/bin/zsh"]
