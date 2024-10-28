@@ -40,6 +40,7 @@ RUN cd /home/naruto && \
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+RUN git clone https://github.com/tmux-plugins/tpm /home/naruto/.tmux/plugins/tpm
 
 RUN touch /home/naruto/.Xauthority
 RUN mkdir -p /home/naruto/.config/tigervnc
