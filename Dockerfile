@@ -53,6 +53,5 @@ RUN sed -i 's/^plugins=(git)/plugins=(git z zsh-syntax-highlighting zsh-autosugg
 COPY vimrc /home/naruto/.vimrc
 COPY tmux.conf /home/naruto/.tmux.conf
 
-# SHELL ["/bin/zsh", "-c"]
-
-CMD ["/bin/zsh", "-c", "/usr/sbin/vncserver && tail -f /dev/null"]
+SHELL ["/bin/zsh", "-c"]
+CMD ["/bin/zsh"]

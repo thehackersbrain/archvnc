@@ -6,7 +6,12 @@
 ```bash
 git clone https://github.com/thehackersbrain/archvnc.git && cd archvnc
 docker build -t archvnc .
-docker run --network host -d archvnc
+docker run --network host -it archvnc /bin/zsh
+```
+
+- From Docker Container
+```bash
+vncserver :1 # to start the server
 ```
 
 - For stopping the docker image
