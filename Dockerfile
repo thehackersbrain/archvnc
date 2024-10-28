@@ -15,6 +15,8 @@ RUN curl -O https://blackarch.org/strap.sh && \
                 ./strap.sh && \
                 rm strap.sh
 
+RUN pacman -S --noconfirm burpsuite nmap
+
 RUN echo 'en_US UTF-8' >> /etc/locale.gen
 RUN locale-gen
 RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf
