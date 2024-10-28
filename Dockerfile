@@ -5,7 +5,7 @@ ENV TERM=xterm-256color
 
 RUN pacman -Syu --noconfirm && \
                 pacman -S --noconfirm \
-                base base-devel bash zsh vim firefox sudo python-pipx git curl wget openssh tmux networkmanager xfce4 xfce4-goodies tigervnc --needed && \
+                base base-devel bash zsh vim firefox sudo python-pipx terminus-font-otb pango git curl wget openssh tmux networkmanager xfce4 xfce4-goodies tigervnc --needed && \
                 systemctl enable NetworkManager.service && \
                 pacman -Scc --noconfirm && \
                 rm -rf /var/cache/pacman/pkg/*
@@ -22,6 +22,8 @@ RUN echo "LANG=en_US.UTF-8" > /etc/locale.conf
 RUN useradd -m naruto && echo "naruto:naruto" | chpasswd && \
                 echo "naruto ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/naruto && \
                 chmod 0440 /etc/sudoers.d/naruto
+
+RUN chsh -s /usr/bin/zsh naruto
 
 USER naruto
 WORKDIR /home/naruto
@@ -45,6 +47,8 @@ RUN sudo chown naruto:naruto -R /home/naruto/.config/tigervnc
 RUN chmod 600 /home/naruto/.config/tigervnc/passwd
 RUN sed -i 's/^ZSH_THEME="robbyrussell"/ZSH_THEME="gentoo"/' /home/naruto/.zshrc
 RUN sed -i 's/^plugins=(git)/plugins=(git z zsh-syntax-highlighting zsh-autosuggestions)/' /home/naruto/.zshrc
+COPY vimrc /home/naruto/.vimrc
+COPY tmux.conf /home/naruto/.tmux.conf
 
 SHELL ["/bin/zsh", "-c"]
 
