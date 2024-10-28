@@ -5,7 +5,7 @@ ENV TERM=xterm-256color
 
 RUN pacman -Syu --noconfirm && \
                 pacman -S --noconfirm \
-                base base-devel bash zsh vim firefox sudo python-pipx terminus-font-otb pango git curl wget openssh tmux networkmanager xfce4 xfce4-goodies tigervnc --needed && \
+                base base-devel bash zsh vim firefox sudo python-pipx terminus-font pango git curl wget openssh tmux networkmanager xfce4 xfce4-goodies tigervnc --needed && \
                 systemctl enable NetworkManager.service && \
                 pacman -Scc --noconfirm && \
                 rm -rf /var/cache/pacman/pkg/*
