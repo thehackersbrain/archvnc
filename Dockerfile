@@ -1,3 +1,12 @@
+# -----------------------------------------------------------------------------
+# Dockerfile for Arch Linux with XFCE, VNC, and custom tools
+# Author: Gaurav Raj (thehackersbrain) @ Cybercraft Labs Pvt Ltd
+# Created: October 2024
+# License: MIT
+# Description: A custom Arch Linux image with a desktop environment, VNC server,
+# and additional tools configured for a streamlined experience.
+# -----------------------------------------------------------------------------
+
 FROM archlinux:latest
 
 ENV LANG=en_US.UTF-8
