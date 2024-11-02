@@ -24,7 +24,7 @@ RUN curl -O https://blackarch.org/strap.sh && \
                 ./strap.sh && \
                 rm strap.sh
 
-RUN pacman -S --noconfirm burpsuite nmap
+RUN pacman -S --noconfirm burpsuite nmap duf neofetch ffuf seclists
 
 RUN echo 'en_US UTF-8' >> /etc/locale.gen
 RUN locale-gen
