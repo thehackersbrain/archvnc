@@ -24,7 +24,7 @@ RUN curl -O https://blackarch.org/strap.sh && \
                 ./strap.sh && \
                 rm strap.sh
 
-RUN pacman -S --noconfirm burpsuite nmap duf neofetch ffuf seclists
+RUN pacman -S --noconfirm burpsuite nmap duf neofetch ffuf seclists proxychains
 
 RUN echo 'en_US UTF-8' >> /etc/locale.gen
 RUN locale-gen
@@ -56,10 +56,10 @@ RUN mkdir -p /home/naruto/.config/tigervnc
 COPY passwd /home/naruto/.config/tigervnc/passwd
 COPY config /home/naruto/.config/tigervnc/config
 RUN sudo chown naruto:naruto -R /home/naruto/.config/tigervnc
-RUN echo 'export PATH="$PATH:/home/naruto/go/bin" >> /home/naruto/.zshrc'
 RUN chmod 600 /home/naruto/.config/tigervnc/passwd
 RUN sed -i 's/^ZSH_THEME="robbyrussell"/ZSH_THEME="gentoo"/' /home/naruto/.zshrc
 RUN sed -i 's/^plugins=(git)/plugins=(git z zsh-syntax-highlighting zsh-autosuggestions)/' /home/naruto/.zshrc
+RUN echo 'export PATH="$PATH:/home/naruto/go/bin"' >> /home/naruto/.zshrc
 COPY vimrc /home/naruto/.vimrc
 COPY tmux.conf /home/naruto/.tmux.conf
 
