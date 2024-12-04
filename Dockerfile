@@ -67,5 +67,4 @@ COPY configs/tmux.conf /home/naruto/.tmux.conf
 RUN go install github.com/jpillora/chisel@latest
 RUN pipx install arjun
 
-SHELL ["/bin/zsh", "-c"]
-CMD ["/bin/zsh"]
+CMD ["sh", "-c", "vncserver :1 && tail -f /dev/null"]

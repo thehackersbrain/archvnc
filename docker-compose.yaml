@@ -9,7 +9,6 @@ services:
     network_mode: host
     volumes:
       - arch-home:/home/naruto/
-    restart: unless-stopped
 
 volumes:
   arch-home:
