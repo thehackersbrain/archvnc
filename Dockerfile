@@ -53,15 +53,16 @@ RUN git clone https://github.com/tmux-plugins/tpm /home/naruto/.tmux/plugins/tpm
 
 RUN touch /home/naruto/.Xauthority
 RUN mkdir -p /home/naruto/.config/tigervnc
-COPY passwd /home/naruto/.config/tigervnc/passwd
-COPY config /home/naruto/.config/tigervnc/config
+COPY configs/passwd /home/naruto/.config/tigervnc/passwd
+COPY configs/config /home/naruto/.config/tigervnc/config
+
 RUN sudo chown naruto:naruto -R /home/naruto/.config/tigervnc
 RUN chmod 600 /home/naruto/.config/tigervnc/passwd
 RUN sed -i 's/^ZSH_THEME="robbyrussell"/ZSH_THEME="gentoo"/' /home/naruto/.zshrc
 RUN sed -i 's/^plugins=(git)/plugins=(git z zsh-syntax-highlighting zsh-autosuggestions)/' /home/naruto/.zshrc
 RUN echo 'export PATH="$PATH:/home/naruto/go/bin:/home/naruto/.local/bin"' >> /home/naruto/.zshrc
-COPY vimrc /home/naruto/.vimrc
-COPY tmux.conf /home/naruto/.tmux.conf
+COPY configs/vimrc /home/naruto/.vimrc
+COPY configs/tmux.conf /home/naruto/.tmux.conf
 
 RUN go install github.com/jpillora/chisel@latest
 RUN pipx install arjun

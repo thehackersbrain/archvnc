@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  arch-machine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: arch-machine
+    network_host: host
+    volumes:
+      - arch-home:/home/naruto/
+    restart: unless-stopped
+
+volumes:
+  arch-home:
+    driver: local
