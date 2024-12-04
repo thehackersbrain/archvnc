@@ -64,12 +64,8 @@ RUN echo 'export PATH="$PATH:/home/naruto/go/bin:/home/naruto/.local/bin"' >> /h
 COPY configs/vimrc /home/naruto/.vimrc
 COPY configs/tmux.conf /home/naruto/.tmux.conf
 
-COPY configs/startup.sh /home/naruto/startup.sh
-RUN sudo chmod +x startup.sh
-
 RUN go install github.com/jpillora/chisel@latest
 RUN pipx install arjun
 
-# SHELL ["/bin/zsh", "-c"]
-# CMD ["/bin/zsh"]
-CMD ["sh", "-c", "/home/naruto/startup.sh && tail -f /dev/null"]
+SHELL ["/bin/zsh", "-c"]
+CMD ["/bin/zsh"]
